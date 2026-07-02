@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIEL</title>
+    <link rel="stylesheet" href="syle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="greet">Good Morning</h1>
+        <div id="clock">00:00:00</div>
+
+        <form id="search-form" action="https://google.com" method="get">
+            <input type="text" name="q" placeholder="search something ..... " autocomplete="off">
+        </form>
+        <div class="app-container" id="app-grid">
+            
+            <!----- this section waits -->
+             <div class="app-card">
+                   <img src="" alt="photo" class="photo">
+                   <span class="app-name">Loading..</span>
+            
+             </div>
+        </div>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+
+</html>
