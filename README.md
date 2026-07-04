@@ -17,6 +17,6 @@ it uses nasa's AOPD api and fetch that api on my browser tab and set the picture
 # Connecting to a browser 
 if you are using a chrome browser it is very easy to set up first you have to go to the extenstion section of the browser then select the search engine( e.g  https://google.com) then it will redirect you to the settings and there u can make your code base as an extention from for the browser and boom you can add that on your browser .. for more information you can visit some youtube tutorials 
 # Demo link 
-
-( thanks for reading and visiting my repo peace !!
+   https://arpan832.github.io/ARIEL/
+( thanks for reading and visiting my repo peace !!🙏)
    
