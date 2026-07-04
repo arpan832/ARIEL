@@ -221,3 +221,19 @@ function startInfiniteSlideshow() {
 }
 
 startInfiniteSlideshow();
+
+/// connect the search to the google search engine
+const searchbox = document.getElementById("search-form");
+searchbox.addEventListener('keydown',(e)=>{
+ if(e.key==="Enter"){
+    const query = searchbox.value.trim();
+
+  if (query!==""){
+    window.location.href=
+                `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+
+}
+  }
+}
+)
+
