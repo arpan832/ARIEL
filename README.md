@@ -22,14 +22,14 @@ This project is a lightweight custom new tab page built with **HTML, CSS, and Ja
 
 ## 📷 Preview
 
-> Add screenshots or a GIF of your project here.
+> https://github-production-user-asset-6210df.s3.amazonaws.com/205518282/617134931-12109f94-7d35-49ec-9c83-f4bc0ed486bd.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260704%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260704T190346Z&X-Amz-Expires=300&X-Amz-Signature=25a66aec4a27d7ef6d4b4292306c523f7391efdb711d866c0668c5a8504e4fb7&X-Amz-SignedHeaders=host&response-content-type=image%2Fpng
 
 ## 🚀 Getting Started
 
 1. Clone the repository.
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/your-username/your-repository.git=
 ```
 
 2. Navigate to the project folder.
