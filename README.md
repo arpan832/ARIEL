@@ -29,13 +29,13 @@ This project is a lightweight custom new tab page built with **HTML, CSS, and Ja
 1. Clone the repository.
 
 ```bash
-git clone https://github.com/your-username/your-repository.git=
+https://github.com/arpan832/ARIEL.git
 ```
 
 2. Navigate to the project folder.
 
 ```bash
-cd your-repository
+cd ARIEL
 ```
 
 3. Open `index.html` in your browser.
