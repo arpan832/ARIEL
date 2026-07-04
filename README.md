@@ -1,6 +1,8 @@
 # ARIEL
- Description: This is a Customized new tab for my native browser inspired heavily from nasa's work .. It have minimalistic ui for clean and Productive encoirment
+ Description: This is a Customized new tab for my native browser inspired heavily from nasa's work .. It have minimalistic ui for clean and Productive envoirment
  inspired from nasa's work it have a right side pop up window that Display's pictures of nasa's space research and also a caption that names the picture 
+ It is inspired by nasa's work so the website body and also the right-side image card is made made by fetching Nasa's API, AKA 
+NAPOD (NASA's Astronomy Picture of the Day) so everyday it will change the background image of the website .. also an exciting part the side image card also have a caption card that changes with the image after every few seconds and the website also greets you with the time of the day ..it also has a small clock just below the greeting so you can see the time too and also the bottom of the search bar have some preloaded apps you can open them just by clicking onto the apps . 
 # Tech Stack :
  It uses 
  HTML5;
