@@ -112,3 +112,112 @@ async function loadNasaBackground() {
 }
 
 loadNasaBackground();
+
+const widgetFallbackImages = [  //this is for the fallback images if the api fails to load
+    {
+        title: "Earth From Apollo 17",
+        src: "https://images-assets.nasa.gov/image/AS17-148-22727/AS17-148-22727~orig.jpg"
+    },
+    {
+        title: "Jupiter Great Red Spot",
+        src: "https://images-assets.nasa.gov/image/PIA21775/PIA21775~orig.jpg"
+    },
+    {
+        title: "Pillars of Creation",
+        src: "https://images-assets.nasa.gov/image/PIA09178/PIA09178~orig.jpg"
+    },
+    {
+        title: "Saturn From Cassini",
+        src: "https://images-assets.nasa.gov/image/PIA11141/PIA11141~orig.jpg"
+    },
+    {
+        title: "The Andromeda Galaxy",
+        src: "https://images-assets.nasa.gov/image/PIA04921/PIA04921~orig.jpg"
+    },
+    {
+        title: "Mars Curiosity Rover",
+        src: "https://images-assets.nasa.gov/image/PIA16937/PIA16937~orig.jpg"
+    },
+    {
+        title: "Orion Nebula",
+        src: "https://images-assets.nasa.gov/image/PIA08653/PIA08653~orig.jpg"
+    },
+    {
+        title: "Moon Over Earth",
+        src: "https://images-assets.nasa.gov/image/PIA00342/PIA00342~orig.jpg"
+    }
+];
+
+async function fetchWidgetImages() {     // here we fetch the images 
+    try {
+        const response = await fetch(`${url}&count=12`, {   // this waits for the api to fetch
+            cache: "no-store"
+        });
+
+        if (!response.ok) { // if the api failed to load it will throw an error
+            throw new Error(`NASA widget API error: ${response.status}`);
+        }
+
+        const data = await response.json();// converts the data into a json() format 
+        const images = data   // Declares a variable to the data 
+            .filter(item => item.media_type === "image" && (item.hdurl || item.url)) // now we will filter out the pic and the caption from the api
+            .map(item => {
+                return {
+                    title: item.title,// and map them so that we can use them 
+                    src: (item.hdurl || item.url).replace(/^http:\/\//, "https://")
+                };
+            });
+
+        return images.length > 0 ? images : widgetFallbackImages; // if the images fails to load it will call the widgetFallbackimages
+    } catch (error) {
+        console.error("Failed to fetch NASA widget images", error); //  or else this is the same 
+        return widgetFallbackImages;
+    }
+}
+
+function shuffle(array) {   // Fisher yates shuffle 
+    let currentIndex = array.length;
+
+    while (currentIndex > 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex);//to randomize a number 
+        currentIndex--; // this decreases the current index 
+
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex],// this thing swap the indesecs
+            array[currentIndex]
+        ];
+    }
+
+    return array; // returns an array 
+}
+
+function startInfiniteSlideshow() {
+    const imgElement = document.getElementById("widget-image");// grabbed the element 
+    const captionElement = document.querySelector(".widget-caption");
+    let shuffledImages = shuffle([...widgetFallbackImages]);
+    let currentIndex = 0;
+
+    function changeImage() { // here we are changing the img
+        if (currentIndex >= shuffledImages.length) {
+            shuffledImages = shuffle([...shuffledImages]);
+            currentIndex = 0;
+        }
+
+        const currentImage = shuffledImages[currentIndex];
+        imgElement.src = currentImage.src;
+        imgElement.alt = currentImage.title;
+        captionElement.textContent = currentImage.title;
+        currentIndex++;
+    }
+
+    changeImage();
+    setInterval(changeImage, 10000);
+
+    fetchWidgetImages().then(images => {
+        shuffledImages = shuffle([...images]);
+        currentIndex = 0;
+        changeImage();
+    });
+}
+
+startInfiniteSlideshow();
